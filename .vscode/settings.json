@@ -1,0 +1,44 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "projeto-final",
+            "database": "setor_psicologia_ifce",
+            "username": "root",
+            "password": ""
+        }
+    ],
+    "cSpell.words": [
+        "autoagressao",
+        "autoviolencia",
+        "cartao",
+        "deficiencia",
+        "descricao",
+        "doenca",
+        "educacao",
+        "enderecos",
+        "execucao",
+        "funcao",
+        "genero",
+        "horarios",
+        "lagradouro",
+        "metodo",
+        "municipio",
+        "notificacao",
+        "ocorrencia",
+        "ocupacao",
+        "orientacao",
+        "psicologos",
+        "responsaveis",
+        "responsavel",
+        "violencia",
+        "violencias"
+    ]
+}
