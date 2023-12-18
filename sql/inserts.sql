@@ -20,11 +20,6 @@ INSERT INTO denuncias (vitima, agressor, data_hora, descricao) VALUES
 ('Vítima 2', 'Agressor 2', '2023-04-15 16:30:00', 'Descrição da denúncia 2'),
 ('Vítima 3', 'Agressor 3', '2023-05-01 09:30:00', 'Descrição da denúncia 3');
 
-INSERT INTO enderecos (logradouro, pais, municipio, estado, bairro, cep, numero, distrito, zona, complemento, telefone, referencia) VALUES
-('Rua Principal', 'Brasil', 'Cidade A', 'CE', 'Bairro Central', '12345678', '100', 'Distrito 1', 'urbana', 'Complemento A', '12345678901', 'Próximo à Praça'),
-('Avenida Secundária', 'Brasil', 'Cidade B', 'SP', 'Bairro Sul', '87654321', '200', 'Distrito 2', 'rural', 'Complemento B', '98765432109', 'Ao lado do Mercado'),
-('Travessa do Centro', 'Brasil', 'Cidade C', 'RJ', 'Bairro Norte', '56789012', '300', 'Distrito 3', 'urbana', 'Complemento C', '34567890123', 'Próximo à Escola');
-
 INSERT INTO violencia (tipo, motivo_da_autoviolencia, metodo_da_autoagressao, encaminhamento) VALUES
 ('Tipo A', 'Motivo 1', 'Método 1', 'Encaminhamento 1'),
 ('Tipo B', 'Motivo 2', 'Método 2', 'Encaminhamento 2'),
@@ -53,15 +48,20 @@ INSERT INTO horarios (data, hora_inicio, hora_fim, local, psicologo_crp) VALUES
 ('2023-06-02', '14:30:00', '16:30:00', 'cajazeiras', '22222222'),
 ('2023-06-03', '10:00:00', '12:00:00', 'areias', '33333333');
 
+INSERT INTO estudantes (nome, curso, semestre, data_de_nascimento, raca_ou_cor, escolaridade, cartao_do_sus, nome_da_mae, nome_do_responsavel, grau_de_parentesco_do_responsavel, dados_complementares_id) VALUES
+('Estudante 1', 'Curso 1', 3, '1998-02-15', 'preta', 'educação superior completo', '12345678901', 'Mãe 1', 'Responsável 1', 'Pai', 1),
+('Estudante 2', 'Curso 2', 2, '1999-05-20', 'parda', 'educação superior incompleta', '98765432109', 'Mãe 2', 'Responsável 2', 'Mãe', 2),
+('Estudante 3', 'Curso 3', 4, '1997-09-10', 'branca', 'educação superior completo', '56789012345', 'Mãe 3', 'Responsável 3', 'Pai', 3);
+
+INSERT INTO enderecos (logradouro, pais, municipio, estado, bairro, cep, numero, distrito, zona, complemento, telefone, referencia, estudantes_id) VALUES
+('Rua Principal', 'Brasil', 'Cidade A', 'CE', 'Bairro Central', '12345678', '100', 'Distrito 1', 'urbana', 'Complemento A', '12345678901', 'Próximo à Praça', 1),
+('Avenida Secundária', 'Brasil', 'Cidade B', 'SP', 'Bairro Sul', '87654321', '200', 'Distrito 2', 'rural', 'Complemento B', '98765432109', 'Ao lado do Mercado', 2),
+('Travessa do Centro', 'Brasil', 'Cidade C', 'RJ', 'Bairro Norte', '56789012', '300', 'Distrito 3', 'urbana', 'Complemento C', '34567890123', 'Próximo à Escola', 3);
+
 INSERT INTO dados_da_ocorrencia (hora, local, ocorreu_outas_vezes, enderecos_id, violencia_id) VALUES
 ('12:30:00', 'Local Ocorrência 1', 'sim', 1, 1),
 ('18:45:00', 'Local Ocorrência 2', 'não', 2, 2),
 ('14:00:00', 'Local Ocorrência 3', 'sim', 3, 3);
-
-INSERT INTO estudantes (nome, curso, semestre, data_de_nascimento, raca_ou_cor, escolaridade, cartao_do_sus, nome_da_mae, nome_do_responsavel, grau_de_parentesco_do_responsavel, dados_complementares_id, enderecos_id) VALUES
-('Estudante 1', 'Curso 1', 3, '1998-02-15', 'preta', 'educação superior completo', '12345678901', 'Mãe 1', 'Responsável 1', 'Pai', 1, 1),
-('Estudante 2', 'Curso 2', 2, '1999-05-20', 'parda', 'educação superior incompleta', '98765432109', 'Mãe 2', 'Responsável 2', 'Mãe', 2, 2),
-('Estudante 3', 'Curso 3', 4, '1997-09-10', 'branca', 'educação superior completo', '56789012345', 'Mãe 3', 'Responsável 3', 'Pai', 3, 3);
 
 INSERT INTO fichas_de_notificacao (data_da_ocorrencia_de_violencia, data_da_notificacao, data_encaminhamento, municipio_da_notificação, estado, campus, psicologo_crp, dados_da_ocorrencia_id, estudantes_id) VALUES
 ('2023-07-01', '2023-07-05', '2023-07-10', 'Cidade A', 'CE', 'Campus X', '11111111', 1, 1),

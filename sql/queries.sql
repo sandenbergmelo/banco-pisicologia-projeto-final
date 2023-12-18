@@ -1,5 +1,5 @@
 -- @block
--- Consulta 1: Listar os psicólogos que estão disponíveis para consultas na próxima semana
+-- Consulta 1: Listar os psicólogos que têm horários na próxima semana
 SELECT psicologos.nome, horarios.data, horarios.hora_inicio, horarios.hora_fim
 FROM psicologos
 JOIN horarios ON psicologos.crp = horarios.psicologo_crp

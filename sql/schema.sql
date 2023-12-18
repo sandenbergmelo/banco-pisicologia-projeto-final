@@ -4,7 +4,6 @@ USE setor_psicologia_ifce;
 
 -- @block
 -- Criação de tabelas sem chaves estrangeiras
-
 CREATE TABLE IF NOT EXISTS psicologos(
     crp CHAR(8) NOT NULL,
     nome VARCHAR(50) NOT NULL,
@@ -39,24 +38,6 @@ CREATE TABLE IF NOT EXISTS denuncias(
     agressor VARCHAR(50) NOT NULL,
     data_hora DATETIME,
     descricao TEXT,
-
-    PRIMARY KEY(id)
-);
-
-CREATE TABLE IF NOT EXISTS enderecos(
-    id INT NOT NULL AUTO_INCREMENT,
-    logradouro VARCHAR(80) NOT NULL,
-    pais VARCHAR(30),
-    municipio VARCHAR(80) NOT NULL,
-    estado CHAR(2) NOT NULL,
-    bairro VARCHAR(50),
-    cep CHAR(8),
-    numero CHAR(4) NOT NULL,
-    distrito CHAR(40),
-    zona ENUM('rural', 'urbana'),
-    complemento VARCHAR(50),
-    telefone VARCHAR(11) NOT NULL,
-    referencia VARCHAR(40),
 
     PRIMARY KEY(id)
 );
@@ -113,20 +94,6 @@ CREATE TABLE IF NOT EXISTS horarios(
     CONSTRAINT FK_horarios_psicologos FOREIGN KEY(psicologo_crp) REFERENCES psicologos(crp)
 );
 
-CREATE TABLE IF NOT EXISTS dados_da_ocorrencia(
-    id INT NOT NULL AUTO_INCREMENT,
-    hora TIME NOT NULL,
-    local VARCHAR(40) NOT NULL,
-    ocorreu_outas_vezes ENUM('sim', 'não', 'ignorado'),
-
-    enderecos_id INT NOT NULL,
-    violencia_id INT NOT NULL,
-
-    PRIMARY KEY(id),
-    CONSTRAINT FK_dados_enderecos FOREIGN KEY(enderecos_id) REFERENCES enderecos(id),
-    CONSTRAINT FK_dados_violencia FOREIGN KEY(violencia_id) REFERENCES violencia(id)
-);
-
 CREATE TABLE IF NOT EXISTS estudantes(
     id INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
@@ -146,11 +113,44 @@ CREATE TABLE IF NOT EXISTS estudantes(
     grau_de_parentesco_do_responsavel VARCHAR(20),
 
     dados_complementares_id INT NOT NULL,
-    enderecos_id INT NOT NULL,
 
     PRIMARY KEY(id),
-    CONSTRAINT FK_dados_estudantes FOREIGN KEY(dados_complementares_id) REFERENCES dados_complementares(id),
-    CONSTRAINT FK_enderecos_estudantes FOREIGN KEY(enderecos_id) REFERENCES enderecos(id)
+    CONSTRAINT FK_dados_estudantes FOREIGN KEY(dados_complementares_id) REFERENCES dados_complementares(id)
+);
+
+CREATE TABLE IF NOT EXISTS enderecos(
+    id INT NOT NULL AUTO_INCREMENT,
+    logradouro VARCHAR(80) NOT NULL,
+    pais VARCHAR(30),
+    municipio VARCHAR(80) NOT NULL,
+    estado CHAR(2) NOT NULL,
+    bairro VARCHAR(50),
+    cep CHAR(8),
+    numero CHAR(4) NOT NULL,
+    distrito CHAR(40),
+    zona ENUM('rural', 'urbana'),
+    complemento VARCHAR(50),
+    telefone VARCHAR(11) NOT NULL,
+    referencia VARCHAR(40),
+
+    estudantes_id INT NOT NULL,
+
+    PRIMARY KEY(id),
+    CONSTRAINT FK_estudantes_enderecos FOREIGN KEY(estudantes_id) REFERENCES estudantes(id)
+);
+
+CREATE TABLE IF NOT EXISTS dados_da_ocorrencia(
+    id INT NOT NULL AUTO_INCREMENT,
+    hora TIME NOT NULL,
+    local VARCHAR(40) NOT NULL,
+    ocorreu_outas_vezes ENUM('sim', 'não', 'ignorado'),
+
+    enderecos_id INT NOT NULL,
+    violencia_id INT NOT NULL,
+
+    PRIMARY KEY(id),
+    CONSTRAINT FK_dados_enderecos FOREIGN KEY(enderecos_id) REFERENCES enderecos(id),
+    CONSTRAINT FK_dados_violencia FOREIGN KEY(violencia_id) REFERENCES violencia(id)
 );
 
 CREATE TABLE IF NOT EXISTS fichas_de_notificacao(
