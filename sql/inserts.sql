@@ -98,7 +98,7 @@ INSERT INTO psicologos_em_projetos (projetos_id, psicologo_crp) VALUES
 (2, '22222222'),
 (3, '33333333');
 
-INSERT INTO responsaveis_em_projetos (projetos_id, outros_responsaveis_id) VALUES
+INSERT INTO outros_responsaveis_em_projetos (projetos_id, outros_responsaveis_id) VALUES
 (1, 1),
 (2, 2),
 (3, 3);

@@ -235,7 +235,7 @@ CREATE TABLE IF NOT EXISTS psicologos_em_projetos(
 );
 
 
-CREATE TABLE IF NOT EXISTS responsaveis_em_projetos(
+CREATE TABLE IF NOT EXISTS outros_responsaveis_em_projetos(
     projetos_id INT NOT NULL,
     outros_responsaveis_id INT NOT NULL,
 
