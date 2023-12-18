@@ -4,6 +4,6 @@
 
 Neste trabalho, foi desenvolvido um banco de dados para um sistema de agendamento de consultas psicológicas para estudantes.
 
-Os modelos conceitual e lógico foram feitos usando o [brModelo](www.sis4.com/brModelo/download.html).
+Os modelos conceitual e lógico foram feitos usando o [brModelo](http://www.sis4.com/brModelo/download.html).
 
 O banco foi implementado utilizando mariaDB.
