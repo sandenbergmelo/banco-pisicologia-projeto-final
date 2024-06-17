@@ -13,6 +13,16 @@
             "database": "setor_psicologia_ifce",
             "username": "root",
             "password": ""
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Migração banco Psicologia",
+            "database": "setor_psicologia_ifce",
+            "username": "docker",
+            "password": "docker"
         }
     ],
     "cSpell.words": [

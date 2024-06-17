@@ -1,4 +1,4 @@
---@block
+-- @block
 -- Tabelas sem chaves estrangeiras
 INSERT INTO psicologos (crp, nome, email, funcao, unidade_de_educacao) VALUES
 ('11111111', 'Maria Oliveira', 'maria.oliveira@email.com', 'Psicóloga', 'Setor A'),
@@ -39,7 +39,6 @@ INSERT INTO outros_responsaveis (nome) VALUES
 ('Responsável 1'),
 ('Responsável 2'),
 ('Responsável 3');
-
 
 -- @block
 -- Tabelas com chaves estrangeiras
@@ -83,8 +82,7 @@ INSERT INTO fichas_de_orientacao_familiar (orientacao_realizada, data, estudante
 ('Orientação realizada para a família do estudante 2.', '2023-09-02', 2, '22222222'),
 ('Orientação realizada para a família do estudante 3.', '2023-09-03', 3, '33333333');
 
-
---@block
+-- @block
 -- Tabelas pivô
 INSERT INTO pessoas_ficha_orientacao_familiar (fichas_de_orientacao_familiar_id, pessoas_presentes_id) VALUES
 (1, 1),

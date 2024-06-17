@@ -18,15 +18,15 @@ WHERE projetos.status_execucao = TRUE;
 SELECT psicologos.nome, COUNT(fichas_de_orientacao_familiar.id) AS num_fichas
 FROM psicologos
 JOIN fichas_de_orientacao_familiar ON psicologos.crp = fichas_de_orientacao_familiar.psicologo_crp
-GROUP BY psicologos.crp;
+GROUP BY psicologos.nome;
 
 -- @block
 -- Consulta 4: Selecionar os estudantes que participaram de mais de um projeto
 SELECT estudantes.nome, COUNT(estudantes_em_projetos.projetos_id) AS num_projetos
 FROM estudantes
 JOIN estudantes_em_projetos ON estudantes.id = estudantes_em_projetos.estudantes_id
-GROUP BY estudantes.id
-HAVING num_projetos > 1;
+GROUP BY estudantes.nome
+HAVING COUNT(estudantes_em_projetos.projetos_id) > 1;
 
 -- @block
 -- Consulta 5: Listar os agendamentos de consultas com informações detalhadas
